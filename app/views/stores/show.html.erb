@@ -1,0 +1,11 @@
+<div style="text-align: center;">
+  <p style="color: green; font-size: 18px; margin-bottom: 20px;"><%= notice %></p>
+  <div style="border: 2px solid #007bff; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+    <%= render @store %>
+  </div>
+  <div>
+    <%= link_to "Edit this product", edit_store_path(@store), class: "btn btn-primary", style: "margin-right: 10px;" %>
+    <%= link_to "Back to stores", stores_path, class: "btn btn-secondary", style: "margin-right: 10px;" %>
+    <%= button_to "Destroy this product", @store, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  </div>
+</div>

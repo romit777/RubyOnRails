@@ -1,0 +1,19 @@
+<table style="width: 100%; border-collapse: collapse;">
+  <tbody>
+    <% count = 0 %>
+    <% @gadgets_gallery.each do |gadget| %>
+      <% if (count % 4) == 0 %>
+        </tr><tr>
+      <% end %>
+      <td style="vertical-align: top; padding: 20px; border: 1px solid #ddd; background-color: #f9f9f9;">
+        <%= image_tag gadget.gadget_image, style: "width: 100px; height: 100px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" %><br>
+        <strong style="display: block; font-size: 16px; margin-bottom: 5px;"><%= gadget.name %></strong>
+        <p style="margin-bottom: 5px;"><span style="color: #888;">Brand:</span> <%= gadget.brand %></p>
+        <p style="margin-bottom: 5px;"><span style="color: #888;">Color:</span> <%= gadget.color %></p>
+        <p style="margin-bottom: 10px;"><span style="color: #888;">Price:</span> <%= gadget.price %></p>
+        <%= button_to 'Add To Cart', line_items_path(store_id: gadget.id), method: :post, style: "background-color: #007bff; color: #fff; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; text-decoration: none;" %>
+      </td>
+      <% count += 1 %>
+    <% end %>
+  </tbody>
+</table>

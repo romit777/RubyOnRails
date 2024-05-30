@@ -1,0 +1,29 @@
+<div id="<%= dom_id store %>" style="margin-bottom: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+  <% if store.gadget_image.attached? %>
+    <%= image_tag store.gadget_image, height: "100", width: "100", style: "margin-bottom: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);" %>
+  <% end %>
+  <p style="margin-bottom: 10px;">
+    <strong style="display: block; font-size: 18px; color: #333;">Name:</strong>
+    <%= store.name %>
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    <strong style="display: block; font-size: 16px; color: #333;">Brand:</strong>
+    <%= store.brand %>
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    <strong style="display: block; font-size: 16px; color: #333;">Description:</strong>
+    <%= store.description %>
+  </p>
+
+  <p style="margin-bottom: 10px;">
+    <strong style="display: block; font-size: 16px; color: #333;">Price:</strong>
+    <%= store.price %>
+  </p>
+
+  <p style="margin-bottom: 0;">
+    <strong style="display: block; font-size: 16px; color: #333;">Color:</strong>
+    <%= store.color %>
+  </p>
+</div>

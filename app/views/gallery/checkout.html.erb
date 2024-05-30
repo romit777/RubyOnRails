@@ -1,0 +1,54 @@
+<%= flash[:notice] %>
+<br />
+<h3>Total Amount to be paid : <%= number_to_currency(session[:amount]) %></h3>
+<%= form_with url: "/gallery/checkout", method: :post do |f| %>
+  <div class="field" style="margin-bottom: 20px;">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" %>
+  </div>
+  <div class="field" style="margin-bottom: 20px;">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" %>
+  </div>
+  <div class="field" style="margin-bottom: 20px;">
+    <%= f.label :credit_card_no %><br />
+    <%= f.text_field :credit_no, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" %>
+  </div>
+  <div class="field" style="margin-bottom: 20px;">
+    <%= f.label :date_of_expiry %><br />
+    <select name="check[month]" id="check_out_month" style="width: 48%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+      <option selected value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+    <select name="check[year]" id="check_out_year" style="width: 48%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+      <option selected value="2024">2024</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+      <option value="2028">2028</option>
+      <option value="2029">2029</option>
+      <option value="2030">2030</option>
+      <option value="2031">2031</option>
+      <option value="2032">2032</option>
+      <option value="2033">2033</option>
+    </select>
+  </div>
+  <div class="field" style="margin-bottom: 20px;">
+    <%= f.label :verification_number %><br />
+    <%= f.text_field :verification_number, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" %>
+  </div>
+  <br/><br/>
+  <div class="actions" style="text-align: center; margin-top: 20px;">
+    <%= f.submit "Submit", style: "background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;" %>
+  </div>
+<% end %>

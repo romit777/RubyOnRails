@@ -1,0 +1,18 @@
+ <h1 style="text-align: center; margin-bottom: 20px;">Admin Login</h1>
+  <%= flash[:notice] %>
+  <div class="login-container" style="width: 300px; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <%= form_with(url: "/admin/login", method: :post) do |form| %>
+      <div class="field" style="margin-bottom: 20px;">
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+      </div>
+      <div class="field" style="margin-bottom: 20px;">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+      </div>
+      <div class="actions">
+        <%= form.submit "Admin Login" %>
+      </div>
+    <% end %>
+  </div>
+

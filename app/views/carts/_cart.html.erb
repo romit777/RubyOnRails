@@ -1,0 +1,31 @@
+<% unless cart.line_items.empty? %>
+  <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; border: 1px solid #ddd;">
+    <tr>
+      <td colspan="3" style="padding: 10px; background-color: #f8f9fa; font-size: 18px; font-weight: bold; text-align: center; border-bottom: 2px solid #ddd;">Your Cart</td>
+    </tr>
+    <%= render(cart.line_items) %>
+    <tr style="border-top: 2px solid #ddd;">
+      <td colspan="2" style="padding: 10px; font-weight: bold; border-right: 1px solid #ddd;">Total</td>
+      <td class="total_cell" style="padding: 10px; font-weight: bold;"><%= number_to_currency(cart.total_price) %></td>
+    </tr>
+  </table>
+  <% session[:amount] = cart.total_price %>
+
+  <div style="text-align: center; margin-bottom: 20px;">
+    <%= button_to 'Empty Cart', cart, method: :delete, data: { confirm: 'Are you sure?' }, style: "background-color: #dc3545; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none; cursor: pointer;" %>
+  </div>
+
+  <div style="text-align: center;">
+    <p><%= link_to "Continue Shopping", controller: "gallery", action: "index", style: "text-decoration: none; color: #007bff; font-size: 16px;" %> | </p>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+  <div style="text-align: center; margin-bottom: 20px;">
+    <%= link_to "Checkout", gallery_checkout_path, style: "background-color: #28a745; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none; cursor: pointer;" %>
+  </div>
+<% else %>
+  <div style="text-align: center;">
+    <%= link_to "Checkout", new_user_session_path, style: "background-color: #28a745; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none; cursor: pointer;" %>
+  </div>
+<% end %>
